@@ -182,12 +182,23 @@ files:
           }
       ).timeout(30000);
     learner_created: false
+  - name: src/images/board-bg.png
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/images/state-panel-bg.png
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/style.css
+    visible: true
+    learner_created: true
+  - name: src/main.js
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/projects/230/stages/1151/implement#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Error: Wrong answer in test #1
-
-    You need to create a game board with the ID "board"
-  time: "Thu, 28 Mar 2024 04:31:52 UTC"
+  message: Congratulations!
+  time: "Thu, 28 Mar 2024 12:11:04 UTC"
 record: -1

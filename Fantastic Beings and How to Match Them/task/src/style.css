@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+}
+
+#board {
+    width: 100vw;
+    height: 100vh;
+    background-image:url("images/board-bg.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#status-bar {
+    background-image: url('images/state-panel-bg.png');
+    background-size: cover;
+    background-position: center;
+    height: 10vw;
+    width: 100%;
+}
+
+#map {
+    margin: 3vh auto 0;
+    width: 60vh;
+    height: 60vh;
+    border-collapse: collapse;
+}
+
+.cell {
+    width: 20%;
+    height: 20%;
+    border: 1px solid rgb(103, 101, 168);
+    background-color: rgba(103, 101, 168, 0.4);
+}

@@ -7,7 +7,7 @@ update_date: "Thu, 28 Mar 2024 09:24:45 UTC"
 stages:
   - id: 1151
     step: 17891
-    is_completed: false
+    is_completed: true
   - id: 1152
     step: 17892
     is_completed: false
