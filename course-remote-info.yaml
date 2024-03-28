@@ -1,0 +1,199 @@
+hyperskill_project:
+  id: 230
+  ide_files: https://cogniterra.org/media/attachments/lesson/26274/additional_files.json
+  is_template_based: false
+  use_ide: true
+update_date: "Thu, 28 Mar 2024 09:24:45 UTC"
+stages:
+  - id: 1151
+    step: 17891
+    is_completed: false
+  - id: 1152
+    step: 17892
+    is_completed: false
+  - id: 1153
+    step: 17893
+    is_completed: false
+  - id: 1154
+    step: 17894
+    is_completed: false
+  - id: 1155
+    step: 17895
+    is_completed: false
+  - id: 1156
+    step: 17896
+    is_completed: false
+  - id: 2415
+    step: 40034
+    is_completed: false
+topics:
+  0:
+    - title: Introduction to UI/UX
+      theory_id: 14603
+    - title: Layout grids
+      theory_id: 14922
+    - title: Interface elements
+      theory_id: 15253
+    - title: Colors
+      theory_id: 14914
+    - title: Block-level elements
+      theory_id: 7271
+    - title: Inline elements
+      theory_id: 7518
+    - title: What is CSS
+      theory_id: 7678
+    - title: HTML attributes id and class
+      theory_id: 7527
+    - title: Connecting CSS to HTML
+      theory_id: 7418
+    - title: Basic syntax
+      theory_id: 7722
+    - title: CSS Selectors
+      theory_id: 7738
+    - title: Relative units
+      theory_id: 10671
+    - title: Absolute units
+      theory_id: 10605
+    - title: Comments
+      theory_id: 7730
+    - title: HTML basics
+      theory_id: 6434
+    - title: Tags and Attributes
+      theory_id: 7536
+    - title: HTML page structure
+      theory_id: 6491
+    - title: Comments
+      theory_id: 7502
+    - title: Margin and Padding
+      theory_id: 26903
+    - title: Width and Height
+      theory_id: 8325
+    - title: Border
+      theory_id: 8355
+    - title: Intro to Tables
+      theory_id: 10832
+    - title: RGB
+      theory_id: 8819
+    - title: Colors in CSS
+      theory_id: 7973
+    - title: Background
+      theory_id: 11670
+  1:
+    - title: Comments
+      theory_id: 8170
+    - title: DOM
+      theory_id: 8635
+    - title: Connecting JavaScript to HTML
+      theory_id: 7510
+    - title: Introduction to JavaScript
+      theory_id: 8016
+    - title: Writing first program
+      theory_id: 8154
+    - title: Multi-line programs
+      theory_id: 8162
+    - title: Declaring variables
+      theory_id: 8186
+    - title: Strings and numbers
+      theory_id: 8194
+    - title: Arithmetic operators
+      theory_id: 8372
+    - title: Functions
+      theory_id: 8388
+    - title: JSON
+      theory_id: 6854
+    - title: Introduction to Objects
+      theory_id: 8588
+    - title: Null and Undefined
+      theory_id: 8564
+    - title: Boolean and Logical Operators
+      theory_id: 8471
+    - title: Type Conversion
+      theory_id: 8380
+    - title: Comparison Operators
+      theory_id: 8580
+    - title: Conditional Operators
+      theory_id: 8889
+    - title: Intro to DOM events
+      theory_id: 10857
+    - title: DOM methods
+      theory_id: 8662
+    - title: Modifying DOM
+      theory_id: 21549
+    - title: Advanced DOM methods
+      theory_id: 21560
+    - title: Increment and Decrement
+      theory_id: 9102
+    - title: "Loops: while and do...while"
+      theory_id: 9128
+    - title: ClassList
+      theory_id: 11653
+    - title: Window Object
+      theory_id: 9382
+  2:
+    - title: Naming variables
+      theory_id: 8364
+    - title: JavaScript Code Style
+      theory_id: 9916
+    - title: Defining functions
+      theory_id: 24012
+    - title: Anonymous function
+      theory_id: 26924
+    - title: Arrow Functions
+      theory_id: 8455
+    - title: Array
+      theory_id: 16141
+    - title: Object methods and keyword "this"
+      theory_id: 8715
+    - title: "Random: getting and generating"
+      theory_id: 18841
+    - title: Math methods
+      theory_id: 24961
+    - title: Introduction to String
+      theory_id: 17747
+    - title: Template literals
+      theory_id: 8731
+  3:
+    - title: Intro to HTML forms
+      theory_id: 6560
+    - title: Pseudo-classes
+      theory_id: 9762
+    - title: Array creation
+      theory_id: 16356
+    - title: The "addEventListener" method
+      theory_id: 8723
+    - title: "Loops: for and for...in"
+      theory_id: 9119
+    - title: For...of loop
+      theory_id: 27391
+    - title: Intro to Lists
+      theory_id: 8178
+  5:
+    - title: Fonts
+      theory_id: 15045
+    - title: Google Fonts
+      theory_id: 7844
+    - title: Using Fonts
+      theory_id: 15189
+    - title: Text Alignment
+      theory_id: 11589
+    - title: Text shadow
+      theory_id: 10161
+  6:
+    - title: Audio
+      theory_id: 7493
+    - title: Introduction to Animation
+      theory_id: 10287
+    - title: Transform
+      theory_id: 12204
+    - title: Backface-visibility
+      theory_id: 12219
+    - title: Transitions
+      theory_id: 13593
+    - title: Position
+      theory_id: 11581
+    - title: Positioning properties
+      theory_id: 8204
+    - title: Audio Object
+      theory_id: 8906
+    - title: z-index
+      theory_id: 11161
