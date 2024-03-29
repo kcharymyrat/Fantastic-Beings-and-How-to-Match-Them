@@ -92,6 +92,23 @@ files:
           }
       ).timeout(30000);
     learner_created: false
-feedback_link: https://hyperskill.org/projects/230/stages/1152/implement#comment
-status: Unchecked
+  - name: src/images/board-bg.png
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/main.js
+    visible: true
+    learner_created: true
+  - name: src/style.css
+    visible: true
+    learner_created: true
+  - name: src/images/state-panel-bg.png
+    visible: true
+    is_binary: true
+    learner_created: true
+feedback_link: https://hyperskill.org/learn/step/17892#comment
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 29 Mar 2024 04:13:19 UTC"
 record: -1

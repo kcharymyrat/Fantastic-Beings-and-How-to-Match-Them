@@ -182,6 +182,6 @@ files:
           }
       ).timeout(30000);
     learner_created: false
-feedback_link: https://hyperskill.org/projects/230/stages/1155/implement#comment
+feedback_link: https://hyperskill.org/learn/step/17895#comment
 status: Unchecked
 record: -1

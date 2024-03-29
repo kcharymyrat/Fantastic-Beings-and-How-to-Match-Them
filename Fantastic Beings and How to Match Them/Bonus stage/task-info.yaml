@@ -153,6 +153,6 @@ files:
     \  }),\n    ]\n\n}\n\nit(\"Test stage\", async () => {\n        await new Test().runTests()\n\
     \    }\n).timeout(30000);\n"
     learner_created: false
-feedback_link: https://hyperskill.org/projects/230/stages/2415/implement#comment
+feedback_link: https://hyperskill.org/learn/step/40034#comment
 status: Unchecked
 record: -1
