@@ -175,6 +175,51 @@ files:
           }
       ).timeout(30000);
     learner_created: false
+  - name: src/images/zouwu.png
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/images/board-bg.png
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/images/puffskein.png
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/images/swooping.png
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/main.js
+    visible: true
+    learner_created: true
+  - name: src/images/kelpie.png
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/images/salamander.png
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/style.css
+    visible: true
+    learner_created: true
+  - name: src/images/state-panel-bg.png
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/images/cell-hover-bg.png
+    visible: true
+    is_binary: true
+    learner_created: true
+  - name: src/images/cell-selected-bg.png
+    visible: true
+    is_binary: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/17894#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 01 Apr 2024 13:25:59 UTC"
 record: -1
