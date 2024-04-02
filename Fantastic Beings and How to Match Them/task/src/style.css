@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Marmelad&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Marmelad", sans-serif;
 }
 
 body {
@@ -21,14 +24,69 @@ body {
     background-size: cover;
     background-position: center;
     height: 10vw;
-    width: 100%;
+    width: 100vw;
+    position: relative;
+    top: 0;
+    margin-bottom: 1rem;
+}
+
+#beings-for-win {
+    position: absolute;
+    top: 2vh;
+    left: 33vw;
+}
+
+#beings-for-win > span {
+    display: inline-block;
+    font-size: 1.5rem;
+    text-align: end;
+    padding-top: 2rem;
+    color: white;
+    width: 60px;
+    height: 60px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    background-position: center;
+}
+
+
+#moves {
+    font-size: 2.3rem;
+    color: white;
+    text-align: center;
+}
+
+#moves-value {
+    display: block;
+}
+
+#scores {
+    font-size: 2rem;
+    color: white;
+    position: absolute;
+    top: 4vh;
+    left: 57vw;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #map {
-    margin: 3vh auto 0;
+    margin: 3vh auto;
     width: 60vh;
     height: 60vh;
     border-collapse: collapse;
+}
+
+#game-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    color: white;
+    background-image: url("images/game-footer.png");
+    background-size: contain;
 }
 
 .cell {
@@ -42,4 +100,26 @@ body {
     background-color: rgba(103, 101, 168, 0.4);
     background-image: url("images/cell-hover-bg.png");
     background-size: contain;
+}
+
+
+
+.kelpie {
+    background-image: url("images/kelpie.png");
+}
+
+.puffskein {
+    background-image: url("images/puffskein.png");
+}
+
+.salamander {
+    background-image: url("images/salamander.png");
+}
+
+.swooping {
+    background-image: url("images/swooping.png");
+}
+
+.zouwu {
+    background-image: url("images/zouwu.png");
 }

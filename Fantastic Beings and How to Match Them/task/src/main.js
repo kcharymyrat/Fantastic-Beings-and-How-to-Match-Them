@@ -1,6 +1,27 @@
 console.log("works")
+const gameWonText = "You won! Reload the page to start the game again.";
+const gameLostText = "You lost! Reload the page to start the game again.";
 
 const mapTable = document.querySelector("#map");
+const movesValue = document.querySelector("#moves-value");
+const scoreValue = document.querySelector("#score-value");
+const beingToWinEl = document.querySelector("#beings-for-win");
+const allBeingToWinEls = beingToWinEl.querySelectorAll("span");
+const gameFooter = document.querySelector("#game-footer");
+
+let movesLeft = Number(movesValue.textContent);
+let currentScore = Number(scoreValue.textContent);
+const beingsElementMap = new Map
+const beingsToWinMap = new Map
+allBeingToWinEls.forEach(span => {
+    const name = span.className;
+    const qty = Number(span.innerHTML);
+    console.log(name, qty);
+    beingsElementMap.set(name, span);
+    beingsToWinMap.set(name, qty);
+})
+console.log(beingsToWinMap);
+console.log(beingsElementMap);
 
 const zouwu = "zouwu"
 const swooping = "swooping"
@@ -16,6 +37,11 @@ let firstClickedElement = null
 
 registerAllNeighbors()
 console.log("threeOrMoreNeighbors =", threeOrMoreNeighborCoords)
+
+function decreaseMoves() {
+    movesLeft--;
+    movesValue.textContent = `${movesLeft}`;
+}
 
 function createRandomFantasticBeingsArr(rowNum, colNum, animalTypes) {
     const randomMap = []
@@ -66,6 +92,7 @@ function handleCellClick(event, i, j, td) {
         console.log(isLeft, isTop, isRight, isBottom)
 
         if (isLeft || isTop || isRight || isBottom) {
+            decreaseMoves();
             firstClickedElement = null;
             td.style.backgroundImage = "none";
             const tempBeing = filledFantasticBeingsArr[i1][j1];
@@ -149,10 +176,21 @@ function deleteSameNeighbors() {
     let isDeleted = false
     for (const coords of threeOrMoreNeighborCoords) {
         for (const coord of coords) {
+            console.log("filledFantasticBeingsArr[coord.i][coord.j] =", filledFantasticBeingsArr[coord.i][coord.j])
+            if (beingsToWinMap.has(filledFantasticBeingsArr[coord.i][coord.j])) {
+                const being = filledFantasticBeingsArr[coord.i][coord.j]
+                let currentNumber = beingsToWinMap.get(filledFantasticBeingsArr[coord.i][coord.j])
+                beingsToWinMap.set(being, currentNumber - 1)
+                // console.log("beingsElementMap.get(being) =", beingsElementMap.get(being).textContent)
+                beingsElementMap.get(being).textContent = currentNumber - 1
+            }
+            console.log(beingsToWinMap);
             filledFantasticBeingsArr[coord.i][coord.j] = ""
+            currentScore += 10
             isDeleted = true
         }
     }
+    scoreValue.textContent = currentScore;
     threeOrMoreNeighborCoords.length = 0
     return isDeleted
 }
@@ -173,6 +211,26 @@ function fillDeleted() {
     if (isDeleted) {
         fillDeleted()
     }
+    if (movesLeft < 1) {
+        const isWon = isGameWon();
+        if (isWon) {
+            gameFooter.textContent = gameWonText;
+        } else {
+            gameFooter.textContent = gameLostText;
+        }
+    }
+}
+
+function isGameWon() {
+    for (const [key, value] of beingsToWinMap.entries()) {
+        console.log(key, value)
+        if (value !== 0) {
+            console.log("isWon =", false);
+            return false;
+        }
+    }
+    console.log("isWon =", true);
+    return true;
 }
 
 window.renderMap = (rowsCount, colsCount) => {
@@ -234,7 +292,7 @@ window.generateRandomBeingName = () => {
 window.renderMap(5, 5)
 // window.redrawMap([
 //     ['kelpie', 'puffskein', 'puffskein'],
-//     ['swooping', 'zouwu', 'puffskein'],
+//     ['zouwu', 'zouwu', 'puffskein'],
 //     ['kelpie', 'puffskein', 'zouwu']
 // ]);
 

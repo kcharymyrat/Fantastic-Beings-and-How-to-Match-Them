@@ -22,10 +22,10 @@ stages:
     is_completed: true
   - id: 1156
     step: 17896
-    is_completed: false
+    is_completed: true
   - id: 2415
     step: 40034
-    is_completed: false
+    is_completed: true
 topics:
   0:
     - title: Introduction to UI/UX
