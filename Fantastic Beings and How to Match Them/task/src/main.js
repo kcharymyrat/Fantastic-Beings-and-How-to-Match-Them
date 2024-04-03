@@ -1,4 +1,3 @@
-console.log("works")
 const gameWonText = "You won! Reload the page to start the game again.";
 const gameLostText = "You lost! Reload the page to start the game again.";
 
@@ -8,6 +7,8 @@ const scoreValue = document.querySelector("#score-value");
 const beingToWinEl = document.querySelector("#beings-for-win");
 const allBeingToWinEls = beingToWinEl.querySelectorAll("span");
 const gameFooter = document.querySelector("#game-footer");
+const clickAudio = document.querySelector("#clickAudio");
+const matchAudio = document.querySelector("#matchAudio");
 
 let movesLeft = Number(movesValue.textContent);
 let currentScore = Number(scoreValue.textContent);
@@ -58,7 +59,6 @@ function randomBeingsRow(rowLength, animalTypesArr) {
             if (index < animalTypesArr.length) {
                 return animalTypesArr[index]
             } else {
-                // return animalTypesArr[index % animalTypesArr.length]
                 return animalTypesArr[Math.floor(Math.random() * animalTypesArr.length)]
             }
         }
@@ -73,12 +73,13 @@ function randomBeingsRow(rowLength, animalTypesArr) {
 }
 
 function handleCellClick(event, i, j, td) {
-    console.log("i =", i, ", j=", j, ", td =", td)
+    // console.log("i =", i, ", j=", j, ", td =", td)
     if (!firstClickedElement) {
         td.style.backgroundImage = 'url("images/cell-selected-bg.png")';
         td.style.backgroundSize = "contain";
         // neighbors
         firstClickedElement = {"i": i, "j": j, "element": td}
+        clickAudio.play();
     } else {
         const i1 = firstClickedElement.i;
         const j1 = firstClickedElement.j;
@@ -93,20 +94,20 @@ function handleCellClick(event, i, j, td) {
 
         if (isLeft || isTop || isRight || isBottom) {
             decreaseMoves();
+
             firstClickedElement = null;
             td.style.backgroundImage = "none";
+
             const tempBeing = filledFantasticBeingsArr[i1][j1];
             filledFantasticBeingsArr[i1][j1] = filledFantasticBeingsArr[i][j];
             filledFantasticBeingsArr[i][j] = tempBeing;
+
             registerAllNeighbors()
+            console.log("threeOrMoreNeighborCoords =", threeOrMoreNeighborCoords)
             deleteSameNeighbors()
-            console.log("threeOrMoreNeighbors =", threeOrMoreNeighborCoords)
             redrawMap(filledFantasticBeingsArr);
-            console.log(filledFantasticBeingsArr);
+            setTimeout(fillDeleted, 1000)
 
-            setTimeout(fillDeleted, 100)
-
-            console.log(filledFantasticBeingsArr)
         }
     }
 }
@@ -161,6 +162,8 @@ function registerVerticalNeighbors(rowIndexStart, rowIndexStop, colIndex) {
 
 
 function registerAllNeighbors() {
+    threeOrMoreNeighborCoords.length = 0;
+
     for (let i = 0; i < filledFantasticBeingsArr.length; i++) {
         registerHorizontalNeighbors(0, filledFantasticBeingsArr.length - 1, i)
     }
@@ -174,17 +177,17 @@ function deleteSameNeighbors() {
         return false
     }
     let isDeleted = false
+    console.log("threeOrMoreNeighborCoords =", threeOrMoreNeighborCoords)
     for (const coords of threeOrMoreNeighborCoords) {
+        console.log("coords =", coords)
         for (const coord of coords) {
-            console.log("filledFantasticBeingsArr[coord.i][coord.j] =", filledFantasticBeingsArr[coord.i][coord.j])
+            console.log("coord =", coord)
             if (beingsToWinMap.has(filledFantasticBeingsArr[coord.i][coord.j])) {
                 const being = filledFantasticBeingsArr[coord.i][coord.j]
                 let currentNumber = beingsToWinMap.get(filledFantasticBeingsArr[coord.i][coord.j])
                 beingsToWinMap.set(being, currentNumber - 1)
-                // console.log("beingsElementMap.get(being) =", beingsElementMap.get(being).textContent)
                 beingsElementMap.get(being).textContent = currentNumber - 1
             }
-            console.log(beingsToWinMap);
             filledFantasticBeingsArr[coord.i][coord.j] = ""
             currentScore += 10
             isDeleted = true
@@ -192,6 +195,11 @@ function deleteSameNeighbors() {
     }
     scoreValue.textContent = currentScore;
     threeOrMoreNeighborCoords.length = 0
+    console.log("isDeleted =", isDeleted)
+    if (isDeleted) {
+        fillDeleted()
+        matchAudio.play();
+    }
     return isDeleted
 }
 
@@ -208,9 +216,6 @@ function fillDeleted() {
     redrawMap(filledFantasticBeingsArr)
     registerAllNeighbors()
     const isDeleted = deleteSameNeighbors()
-    if (isDeleted) {
-        fillDeleted()
-    }
     if (movesLeft < 1) {
         const isWon = isGameWon();
         if (isWon) {
@@ -223,7 +228,6 @@ function fillDeleted() {
 
 function isGameWon() {
     for (const [key, value] of beingsToWinMap.entries()) {
-        console.log(key, value)
         if (value !== 0) {
             console.log("isWon =", false);
             return false;
@@ -245,13 +249,18 @@ window.renderMap = (rowsCount, colsCount) => {
             })
 
             if (filledFantasticBeingsArr[i][j]) {
+                if (!filledFantasticBeingsArr[i][j]) {
+                    console.log("filledFantasticBeingsArr[i][j] =", filledFantasticBeingsArr[i][j])
+                    td.classList.add("explode");
+                    setTimeout(() => td.classList.remove("explode"), 10000)
+                }
                 const img = document.createElement("img");
+                td.appendChild(img)
                 img.src = `images/${filledFantasticBeingsArr[i][j]}.png`;
                 img.dataset.coords = `x${j}_y${i}`;
                 img.style.width = 100 + 'px';
                 img.style.height = 100 + 'px'
                 td.dataset.being = filledFantasticBeingsArr[i][j];
-                td.appendChild(img)
             } else {
                 td.dataset.being = "";
                 td.textContent = "";
@@ -261,7 +270,6 @@ window.renderMap = (rowsCount, colsCount) => {
         }
         mapTable.appendChild(tr);
     }
-    console.log(mapTable);
 }
 
 window.clearMap = () => {
@@ -291,9 +299,9 @@ window.generateRandomBeingName = () => {
 
 window.renderMap(5, 5)
 // window.redrawMap([
-//     ['kelpie', 'puffskein', 'puffskein'],
-//     ['zouwu', 'zouwu', 'puffskein'],
-//     ['kelpie', 'puffskein', 'zouwu']
+//     ['kelpie', 'puffskein', 'kelpie'],
+//     ['salamander', 'salamander', 'puffskein'],
+//     ['kelpie', 'puffskein', 'salamander']
 // ]);
 
 

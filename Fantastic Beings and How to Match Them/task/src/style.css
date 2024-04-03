@@ -94,6 +94,7 @@ body {
     height: 20%;
     border: 1px solid rgb(103, 101, 168);
     background-color: rgba(103, 101, 168, 0.4);
+
 }
 
 .cell:hover {
@@ -102,6 +103,14 @@ body {
     background-size: contain;
 }
 
+.cell > img {
+    overflow: hidden;
+    transition: width 0.5s, height 0.5s;
+}
+
+.cell > img:hover {
+    transform: scale(1.1) translateX(-1.8%);
+}
 
 
 .kelpie {
@@ -123,3 +132,66 @@ body {
 .zouwu {
     background-image: url("images/zouwu.png");
 }
+
+.exploded {
+    animation-name: explosion-animation;
+    animation-duration: 2s;
+    background-size: contain;
+}
+
+@keyframes explosion-animation {
+    0% {
+        background-image: url("animations/frame_0_delay-0.07s.png");
+    }
+
+    14% {
+        background-image: url("animations/frame_1_delay-0.07s.png");
+    }
+
+    28% {
+        background-image: url("animations/frame_2_delay-0.07s.png");
+    }
+
+    42% {
+        background-image: url("animations/frame_3_delay-0.07s.png");
+    }
+
+    56% {
+        background-image: url("animations/frame_4_delay-0.07s.png");
+    }
+
+    70% {
+        background-image: url("animations/frame_5_delay-0.07s.png");
+    }
+
+    84% {
+        background-image: url("animations/frame_6_delay-0.07s.png");
+    }
+
+    100% {
+        background-image: none;
+    }
+}
+
+@keyframes change-font-size {
+    from {
+        height: 10%;
+    }
+    50% {
+        height: 30%;
+    }
+    to {
+        height: 10%;
+    }
+}
+
+h1 {
+    animation-name: change-font-size;
+    animation-duration: 3s;
+    /* animation-iteration-count: infinite; — the animation is played endlessly  */
+    /* animation: change-font-size 2s 3; */
+}
+
+/*#map {*/
+/*    transform: translate(10%, 30px) rotate(60deg);*/
+/*}*/
